@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 340 100% 98%;
+    --foreground: 340 50% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 340 50% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 340 50% 20%;
+
+    --primary: 340 82% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 270 60% 85%;
+    --secondary-foreground: 340 50% 20%;
+
+    --muted: 340 100% 95%;
+    --muted-foreground: 340 30% 50%;
+
+    --accent: 45 100% 80%;
+    --accent-foreground: 340 50% 20%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 340 100% 90%;
+    --input: 340 100% 90%;
+    --ring: 340 82% 65%;
+
+    --radius: 1rem;
+    
+    /* Romantic gradients */
+    --gradient-romantic: linear-gradient(135deg, hsl(340 100% 95%), hsl(270 60% 90%), hsl(200 60% 90%));
+    --gradient-rose: linear-gradient(135deg, hsl(340 82% 75%), hsl(340 82% 65%));
+    --gradient-dreamy: linear-gradient(180deg, hsl(340 100% 98%), hsl(270 100% 98%));
+    
+    /* Shadows */
+    --shadow-soft: 0 10px 30px -10px hsl(340 82% 65% / 0.3);
+    --shadow-glow: 0 0 40px hsl(340 82% 75% / 0.4);
+    
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 340 30% 15%;
+    --foreground: 340 100% 95%;
+    --card: 340 30% 18%;
+    --card-foreground: 340 100% 95%;
+    --primary: 340 82% 65%;
+    --primary-foreground: 0 0% 100%;
+    --muted: 340 30% 20%;
+    --muted-foreground: 340 30% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+  .font-handwriting {
+    font-family: 'Dancing Script', cursive;
+  }
+  
+  .font-romantic {
+    font-family: 'Pacifico', cursive;
+  }
+}
+
+@layer utilities {
+  .text-gradient-romantic {
+    @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-float-delayed {
+    animation: float 3s ease-in-out infinite 1.5s;
+  }
+  
+  .animate-heartbeat {
+    animation: heartbeat 1.5s ease-in-out infinite;
+  }
+  
+  .animate-sparkle {
+    animation: sparkle 2s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  @keyframes heartbeat {
+    0%, 100% {
+      transform: scale(1);
+    }
+    25% {
+      transform: scale(1.1);
+    }
+    50% {
+      transform: scale(1);
+    }
+    75% {
+      transform: scale(1.05);
+    }
+  }
+  
+  @keyframes sparkle {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.2) rotate(180deg);
+    }
+  }
+  
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/30 border border-white/50;
+  }
+}
